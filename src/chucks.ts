@@ -13,7 +13,7 @@ import pLimit from "p-limit";
  * @param {number} size 
  * @returns 
  */
-function createChunks(array, size) {
+function createChunks(array: any, size: any) {
   let result = [];
   for (let i = 0; i < array.length; i += size) {
     let chunk = array.slice(i, i + size);
@@ -25,11 +25,11 @@ function createChunks(array, size) {
 const limit = pLimit(2);
 
 // Función para procesar todos los chunks con p-limit
-export async function processChunks(chunks, fn, totalItems) {
+export async function processChunks(chunks: any, fn: any, totalItems: any) {
   const startTime = Date.now(); // Marca el inicio del procesamiento
 
   // Usamos `map` para crear las promesas pero controlamos la concurrencia
-  const promises = chunks.map((chunk) => {
+  const promises = chunks.map((chunk: any) => {
     // Cada chunk se procesa en paralelo, pero limitamos la cantidad de operaciones concurrentes
     return limit(() => Promise.all(chunk.map(fn)));
   });

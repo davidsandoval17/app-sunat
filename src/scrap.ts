@@ -1,7 +1,7 @@
 //@ts-check
 import puppeteer from "puppeteer";
 
-export async function scrap(user) {
+export async function scrap(user: any) {
   const browser = await puppeteer.launch({
     executablePath:
       "D:\\Users\\CORFINAN\\Desktop\\app\\chrome\\win64-133.0.6943.53\\chrome-win64\\chrome.exe",
